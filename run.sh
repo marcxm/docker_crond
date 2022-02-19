@@ -1,7 +1,7 @@
 #!/bin/bash
 
-useradd -m marc &
-#
+useradd -m $USERNAME &
+
 echo "root:$ROOTPASSWORD"|chpasswd &
 echo "$USERNAME:$USERPASSWORD"|chpasswd &
 

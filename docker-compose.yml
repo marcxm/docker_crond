@@ -1,0 +1,25 @@
+version: "3.3"
+
+services:
+
+  crond:
+#    build: .
+    image: "marcxms/crond:latest"
+    hostname: crond
+    restart: always
+    container_name: "crond"
+#    stdin_open: true
+#    tty: true
+    environment:
+#      - PUID=1000
+#      - PGID=1000
+      - TZ=Europe/Warsaw
+      - USERNAME=marc
+      - USERPASSWORD=mypassword
+      - ROOTPASSWORD=mypassword
+    command: ["/run.sh"]
+    volumes:
+      - "./crontabs:/var/spool/cron/"
+      - "./root:/root"
+      - "/mnt/data:/mnt/data"
+

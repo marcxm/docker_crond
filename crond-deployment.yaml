@@ -1,0 +1,47 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: crond
+  namespace: default
+spec:
+  selector:
+    matchLabels:
+      app: crond
+  template:
+    metadata:
+      labels:
+        app: crond
+    spec:
+      containers:
+        - name: crond
+          image: marcxms/crond
+#          resources:
+#            limits:
+#              memory: "512Mi"
+#              cpu: "500m"
+          ports:
+            - containerPort: 80 
+          volumeMounts:
+            - name: data
+              mountPath: /mnt/data
+            - name: root
+              mountPath: /root
+            - name: crontabs
+              mountPath: /var/spool/cron
+      volumes:
+      - name: data
+        hostPath:
+          path: /mnt/data/
+          type: Directory
+      - name: root
+        hostPath:
+          path: /mnt/data/crond/root
+      - name: crontabs
+        hostPath:
+          path: /mnt/data/crond/crontabs
+---
+
+
+
+

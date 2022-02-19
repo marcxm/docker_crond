@@ -30,7 +30,7 @@ spec:
     stage('Stage 1: Build with Kaniko') {
       steps {
         container('kaniko') {
-          sh '/kaniko/executor --context=git@gitea.xmsres.com:marc/crond.git \
+          sh '/kaniko/executor --context=https://github.com/marcxm/docker_crond.git \
                   --context `pwd`/ \
                   --destination=marcxms/crond:latest \
                   --insecure \

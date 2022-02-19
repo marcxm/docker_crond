@@ -36,8 +36,11 @@ spec:
                   --insecure \
                   --skip-tls-verify \
                   --force \
-                  -v=debug && \
-              echo `pwd`/ '
+                  --build-arg opts='GOARCH=amd64' \
+                  --build-arg opts='GOARCH=arm64' \
+                  --customPlatform=linux/arm64/v8 \
+                  --customPlatform=linux/amd64 \
+                  -v=debug
         }
       }
     }

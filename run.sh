@@ -1,6 +1,6 @@
 #!/bin/bash
 
-f [ "${USERNAME}" = "" ]; then
+if [ "${USERNAME}" = "" ]; then
   echo "No USERNAME given. NOT creating user account. Rely on root account."
   exit
 else

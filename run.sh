@@ -4,7 +4,7 @@ if [ "${USERNAME}" = "" ]; then
   echo "No USERNAME given. NOT creating user account. Rely on root account."
   exit
 else
-  echo "Variable is: $USERNAME. Creating user account."
+  echo "USERNAME variable set to: "$USERNAME". Creating user account for "$USERNAME"."
   useradd -m $USERNAME
   echo "$USERNAME:$USERPASSWORD"|chpasswd
   exit

@@ -33,6 +33,7 @@ spec:
           sh '/kaniko/executor --context=https://github.com/marcxm/docker_crond.git \
                   --context `pwd`/ \
                   --destination=marcxms/crond:latest \
+                  --cleanup \
                   --insecure \
                   --skip-tls-verify \
                   --force \
